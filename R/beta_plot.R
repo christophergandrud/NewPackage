@@ -20,9 +20,15 @@
 #'
 #' @seealso \code{\link{rbeta}}, \code{\link{geom_density}}
 #' @import ggplot2
+#' @importFrom stats rbeta
 #' @export
 
 beta_plot <- function(n = 10000, a = 1, b = 3) {
+    x <- NULL
+    # ensure non-zero/negative argument values
+    if (any(n <= 0, a <= 0, b <= 0))
+        stop("n, a, and b arguments must be greater than 0.", call. = FALSE)
+
     # draw distributions
     sims <- rbeta(n = n, shape1 = a, shape2 = b)
 
