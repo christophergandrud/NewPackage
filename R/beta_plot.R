@@ -1,4 +1,5 @@
-
+#' @import ggplot2
+#' @export
 
 beta_plot <- function(n = 10000, a = 1, b = 3) {
     # draw distributions
